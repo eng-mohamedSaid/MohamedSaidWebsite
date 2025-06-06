@@ -25,7 +25,6 @@ const router = createRouter({
       name: "ProjectDetail",
       component: ProjectDetail,
       props: true,
-      meta: { hideNavbar: true }
     },
     {
       path: "/contatct",

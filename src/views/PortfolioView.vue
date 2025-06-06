@@ -4,16 +4,14 @@ import { projects } from "@/data/data.js";
 
 <template>
   <section id="portfolio">
-    <div class="section-title">
-      <h2>recent work</h2>
-    </div>
+    <h2 class="section-title">recent work</h2>
 
     <div class="portfolio-items">
       <div class="portfolio-item" v-for="(project, idx) in projects" :key="idx">
         <div class="portfolio-item-thumbnail">
           <img :src="project.img" :alt="project.alt" />
         </div>
-        <h3 class="portfolio-item-title">{{ project.title }}</h3>
+        <h3>{{ project.title }}</h3>
         <RouterLink
           :to="{ name: 'ProjectDetail', params: { id: project.id } }"
           class="btn view-project-btn"
@@ -26,7 +24,6 @@ import { projects } from "@/data/data.js";
 </template>
 
 <style scoped>
-
 .portfolio-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -41,7 +38,7 @@ import { projects } from "@/data/data.js";
   justify-content: center;
 }
 .portfolio-item h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-transform: capitalize;
   text-align: center;
   margin: 0.5rem 0;
@@ -57,30 +54,27 @@ import { projects } from "@/data/data.js";
 }
 .portfolio-item-thumbnail img {
   border-radius: 1rem;
-  /* overflow: hidden; */
   max-width: 100%;
   height: auto;
-  /* flex-shrink: 0; */
-  /* display: block; */
-  /* object-fit: cover;
-  object-position: center center; */
 }
 .portfolio-item-details {
   display: none;
 }
 
 @media (max-width: 767px) {
-
+  .portfolio-item {
+    margin: 1rem 0;
+  }
+  .portfolio-item h3 {
+    font-size: 1.2rem;
+  }
   .portfolio-items {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 @media (max-width: 575px) {
-
   .portfolio-items {
     grid-template-columns: repeat(1, 1fr);
   }
-
 }
 </style>

@@ -1,14 +1,24 @@
 <script setup>
 import { ref } from "vue";
-import {  RouterView, useRoute } from "vue-router";
+import { RouterView, useRoute } from "vue-router";
 import Navbar from "@/components/Navbar.vue";
-const isNavActive = ref(false);
+import CirclesBackground from "./components/CirclesBackground.vue";
+import Loader from "@/components/Loader.vue";
+
 const route = useRoute();
+const isNavActive = ref(false);
+const isLoading = ref(true);
+
+setTimeout(() => {
+  isLoading.value = false;
+}, 5000);
 </script>
 
 <template>
-  <Navbar v-model="isNavActive" v-if="!route.meta.hideNavbar" />
+  <CirclesBackground />
   <div class="main">
+    <Loader v-if="isLoading" />
+    <Navbar v-model="isNavActive" v-if="!route.meta.hideNavbar" />
     <RouterView v-show="!isNavActive" />
   </div>
 </template>

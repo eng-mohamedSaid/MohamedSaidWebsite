@@ -2,7 +2,6 @@
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { projects } from "@/data/data.js";
-import CloseButton from "@/components/CloseButton.vue";
 const route = useRoute();
 const router = useRouter();
 
@@ -17,43 +16,40 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="portfolio" class="pp-content" v-if="project">
-    <CloseButton :closeLink="{ name: 'portfolio' }" />
-    <div class="portfolio-items">
-      <div class="portfolio-item">
-        <div class="portfolio-item-thumbnail pp-thumbnail">
-          <img :src="project.img" :alt="project.alt" />
+  <section id="portfolio" class="project-details" v-if="project">
+    <div class="portfolio-item">
+      <div class="portfolio-item-thumbnail">
+        <img :src="project.img" :alt="project.alt" />
+      </div>
+      <h3 class="pp-header">{{ project.title }}</h3>
+      <div class="pp-body">
+        <div class="description">
+          <p>{{ project.description }}</p>
         </div>
-        <h3 class="pp-header">{{ project.title }}</h3>
-        <div class="pp-body">
-          <div class="description">
-            <p>{{ project.description }}</p>
-          </div>
-          <div class="general-info">
-            <ul>
-              <li>
-                Created - <span>{{ project.created }}</span>
-              </li>
-              <li>
-                technologies used - <span>{{ project.technologies }}</span>
-              </li>
-              <li>
-                Role - <span>{{ project.role }}</span>
-              </li>
-              <li>
-                view Online -
-                <span>
-                  <a :href="project.online" target="_blank">www.domain.com</a>
-                </span>
-              </li>
-              <li>
-                Github -
-                <span>
-                  <a :href="project.github" target="_blank">Code</a>
-                </span>
-              </li>
-            </ul>
-          </div>
+        <div class="general-info">
+          <ul>
+            <li>
+              Created - <span>{{ project.created }}</span>
+            </li>
+            <li>
+              technologies used - <span>{{ project.technologies }}</span>
+            </li>
+            <li>
+              Role - <span>{{ project.role }}</span>
+            </li>
+            <li>
+              view Online -
+              <span>
+                <a :href="project.online" target="_blank">www.domain.com</a>
+              </span>
+            </li>
+            <li>
+              Github -
+              <span>
+                <a :href="project.github" target="_blank">Code</a>
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -61,19 +57,15 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.pp-content {
-  background-color: var(--white-alpha-25);
+.project-details {
   padding: 1.5rem;
-  border-radius: 1rem;
-  max-width: 900px;
-  width: 100%;
-  border: 1px solid var(--white-alpha-40);
-  backdrop-filter: var(--backdrop-filter-blur);
-  opacity: 1;
 }
-
-.pp-thumbnail img {
+.portfolio-item-thumbnail img {
   border-radius: 1rem;
+  width: 100%;
+  max-height: 600px;
+  height: 20%;
+  object-fit: cover;
 }
 .pp-header {
   font-size: 1.3rem;
@@ -101,7 +93,7 @@ onMounted(() => {
 }
 
 @media (max-width: 600px) {
-  .pp-content {
+  .project-details {
     padding: 2rem 0px 0px 0px;
   }
 }

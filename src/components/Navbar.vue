@@ -16,47 +16,53 @@ const closeNav = () => {
 
 <template>
   <header :class="{ active: modelValue }" class="header">
-    <div class="container">
-      <div class="row flex-end">
-        <button
-          class="nav-toggler"
-          type="button"
-          @click="toggleNav"
-          aria-label="Toggle navigation"
-        >
-          <span :class="{ active: modelValue }"></span>
-        </button>
-      </div>
-      <nav v-show="modelValue" class="nav">
-        <div class="nav-inner">
-          <RouterLink class="nav-item link-item" to="/" @click="closeNav"
-            >Home</RouterLink
-          >
-          <RouterLink class="nav-item link-item" to="/about" @click="closeNav"
-            >About</RouterLink
-          >
-          <RouterLink
-            class="nav-item link-item"
-            to="/portfolio"
-            @click="closeNav"
-            >Portfolio</RouterLink
-          >
-          <RouterLink class="nav-item link-item" to="/contact" @click="closeNav"
-            >Contact</RouterLink
-          >
-        </div>
-      </nav>
+    <div class="nav-header">
+      <button
+        class="nav-toggler"
+        type="button"
+        @click="toggleNav"
+        aria-label="Toggle navigation"
+      >
+        <span :class="{ active: modelValue }"></span>
+      </button>
+      <RouterLink to="/">
+        <img class="logo" src="@/assets/img/logo.png" alt="logo" />
+      </RouterLink>
     </div>
+
+    <nav v-show="modelValue">
+      <section class="nav-inner">
+        <RouterLink class="nav-item link-item" to="/" @click="closeNav"
+          >Home</RouterLink
+        >
+        <RouterLink class="nav-item link-item" to="/about" @click="closeNav"
+          >About</RouterLink
+        >
+        <RouterLink class="nav-item link-item" to="/portfolio" @click="closeNav"
+          >Portfolio</RouterLink
+        >
+        <RouterLink class="nav-item link-item" to="/contact" @click="closeNav"
+          >Contact</RouterLink
+        >
+      </section>
+    </nav>
   </header>
 </template>
 
 <style scoped>
 .header {
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  z-index: 1;
+}
+
+.logo {
+  width: 200px;
 }
 
 .nav-toggler {
@@ -70,7 +76,6 @@ const closeNav = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
   z-index: 1;
   transition: opacity 0.3s ease-in-out;
 }
@@ -128,23 +133,12 @@ const closeNav = () => {
   visibility: visible;
 }
 .nav-inner {
-  min-height: 90vh;
-  max-width: 1200px;
-  margin: auto;
-  background-color: var(--white-alpha-25);
-  border: 1px solid var(--white-alpha-40);
-  backdrop-filter: var(--backdrop-filter-blur);
-  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: all 0.3s ease;
 }
-.header.active .nav-inner {
-  opacity: 1;
-}
+
 .nav-item {
   font-size: 1.7rem;
   text-transform: capitalize;
@@ -173,10 +167,24 @@ const closeNav = () => {
   width: 100%;
 }
 
-@media (max-width: 380px) {
-  .header {
-    right: 0px;
-    top: 0px;
+@media (max-width: 600px) {
+  .logo {
+    width: 120px;
+  }
+  .nav-toggler {
+    width: 40px;
+    height: 40px;
+  }
+  .nav-toggler span {
+    height: 1.5px;
+    width: 18px;
+  }
+  .nav-toggler span::before {
+    transform: translateY(-6px);
+  }
+  .nav-toggler span::after {
+    right: 0;
+    transform: translateY(6px);
   }
 }
 </style>
