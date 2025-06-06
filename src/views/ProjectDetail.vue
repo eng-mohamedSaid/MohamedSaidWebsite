@@ -21,36 +21,26 @@ onMounted(() => {
       <div class="portfolio-item-thumbnail">
         <img :src="project.img" :alt="project.alt" />
       </div>
-      <h3 class="pp-header">{{ project.title }}</h3>
-      <div class="pp-body">
-        <div class="description">
-          <p>{{ project.description }}</p>
-        </div>
-        <div class="general-info">
-          <ul>
-            <li>
-              Created - <span>{{ project.created }}</span>
-            </li>
-            <li>
-              technologies used - <span>{{ project.technologies }}</span>
-            </li>
-            <li>
-              Role - <span>{{ project.role }}</span>
-            </li>
-            <li>
-              view Online -
-              <span>
-                <a :href="project.online" target="_blank">www.domain.com</a>
-              </span>
-            </li>
-            <li>
-              Github -
-              <span>
-                <a :href="project.github" target="_blank">Code</a>
-              </span>
-            </li>
-          </ul>
-        </div>
+      <h3 class="subtitle">{{ project.title }}</h3>
+
+      <p class="description">{{ project.description }}</p>
+
+      <ul class="general-info">
+        <li>
+          Created - <span>{{ project.created }}</span>
+        </li>
+        <li>
+          technologies used - <span>{{ project.technologies }}</span>
+        </li>
+        <li>
+          Role - <span>{{ project.role }}</span>
+        </li>
+      </ul>
+
+      <div class="btns-container">
+
+        <a class="btn" :href="project.online" target="_blank">Demo</a>
+        <a class="btn" :href="project.github" target="_blank">Github</a>
       </div>
     </div>
   </section>
@@ -67,11 +57,6 @@ onMounted(() => {
   height: 20%;
   object-fit: cover;
 }
-.pp-header {
-  font-size: 1.3rem;
-  text-transform: capitalize;
-  margin: 1rem 0;
-}
 .description {
   margin-bottom: 1rem;
 }
@@ -83,18 +68,23 @@ onMounted(() => {
 .general-info li span {
   font-weight: 300;
 }
-.general-info li a {
-  text-transform: lowercase;
-  color: var(--main-color);
-}
 
 .portfolio-item {
   margin: 1.3rem;
 }
+.btns-container{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 
 @media (max-width: 600px) {
   .project-details {
-    padding: 2rem 0px 0px 0px;
+    padding: 0;
   }
+  .btns-container{
+
+  justify-content: space-between;
+}
 }
 </style>

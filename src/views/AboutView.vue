@@ -27,9 +27,7 @@ import { RouterLink } from "vue-router";
           <div class="skill-item">AWS</div>
         </div>
 
-        <div class="about-tabs">
-          <p class="subtitle">Education & Experience</p>
-        </div>
+        <p class="subtitle">Education & Experience</p>
 
         <!-- Education start  -->
         <div class="tab-content active" id="education">
@@ -56,12 +54,6 @@ import { RouterLink } from "vue-router";
           </div>
         </div>
 
-        <a
-          href="other/FrontendDeveloper_MohamedSaidAbdallah.pdf"
-          target="_blank"
-          class="btn"
-          >download cv</a
-        >
         <a
           href="https://www.notion.so/Mohamed-Said-Abdallah-4e6e5b071ab04d159b2980d2929dea60"
           class="btn link-item"
@@ -158,7 +150,7 @@ import { RouterLink } from "vue-router";
   position: absolute;
   height: 100%;
   width: 1px;
-  top: 0;
+  top: 5px;
   left: 5px;
   background-color: var(--main-color);
 }
@@ -180,7 +172,7 @@ import { RouterLink } from "vue-router";
   position: absolute;
   height: 11px;
   width: 11px;
-  top: 0;
+  top: 5px;
   left: 0;
   background-color: var(--main-color);
   border-radius: 50%;
@@ -192,12 +184,11 @@ import { RouterLink } from "vue-router";
   display: block;
   color: var(--main-color);
   font-weight: 400;
-  margin: 0 0 1rem;
 }
 .timeline-item h4 {
   font-size: 1.2rem;
   text-transform: capitalize;
-  margin: 0 0 1rem;
+  margin: 0 0 0.6rem;
 }
 
 .btn {
@@ -216,6 +207,15 @@ import { RouterLink } from "vue-router";
 
   .about-text {
     font-size: 1rem;
+  }
+  .skill-item {
+    padding: 5px 10px;
+    margin: 0 8px 8px 0;
+  }
+  .timeline-item {
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 0 0 1rem 1rem;
   }
 }
 </style>

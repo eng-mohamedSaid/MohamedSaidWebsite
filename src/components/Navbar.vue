@@ -26,7 +26,7 @@ const closeNav = () => {
         <span :class="{ active: modelValue }"></span>
       </button>
       <RouterLink to="/">
-        <img class="logo" src="@/assets/img/logo.png" alt="logo" />
+        <img @click="closeNav" class="logo" src="@/assets/img/logo.png" alt="logo" />
       </RouterLink>
     </div>
 
