@@ -387,7 +387,7 @@ button {
 /*---------- 
 /Portfolio Popup
 ------------------------- */
-.portfolio-popup {
+/* .portfolio-popup {
   position: fixed;
   left: 0;
   top: 0;
@@ -395,12 +395,12 @@ button {
   width: 100%;
   z-index: 200;
   /* overflow-y: auto;
-  visibility: hidden; */
+  visibility: hidden; //
 }
 .portfolio-popup.open {
   visibility: visible;
   overflow-y: auto;
-}
+} 
 
 /*---------- 
 /contact section

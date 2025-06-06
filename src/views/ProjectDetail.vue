@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { projects } from "@/data/data.js";
+import CloseButton from "@/components/CloseButton.vue";
 const route = useRoute();
 const router = useRouter();
 
@@ -17,6 +18,7 @@ onMounted(() => {
 
 <template>
   <section id="portfolio" class="pp-content" v-if="project">
+    <CloseButton :closeLink="{ name: 'portfolio' }" />
     <div class="portfolio-items">
       <div class="portfolio-item">
         <div class="portfolio-item-thumbnail pp-thumbnail">
@@ -96,5 +98,11 @@ onMounted(() => {
 
 .portfolio-item {
   margin: 1.3rem;
+}
+
+@media (max-width: 600px) {
+  .pp-content {
+    padding: 2rem 0px 0px 0px;
+  }
 }
 </style>
