@@ -1,7 +1,7 @@
 <script setup>
 import Envelope from "@/components/icons/Envelope.vue";
 import Whatsapp from "@/components/icons/Whatsapp.vue";
-import LinkedIn from "@/components/icons/LinkedIn.vue";
+import LinkedIn from "@/components/icons/Linkedin.vue";
 import Github from "@/components/icons/Github.vue";
 
 const contacts = [
