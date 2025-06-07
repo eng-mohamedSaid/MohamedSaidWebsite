@@ -77,11 +77,9 @@ const experiences = [
 
       <div class="about-text">
         <p class="description">
-          Hi my name is Mohamed Said. I am a student at faculty of Engineering -
-          Computer Science Department (Zagazig University).I am interested in
-          Programming so i started learning Web development at youtube then i
-          join Kalbonyan Elmarsos Internship, and it gave me the right way to be
-          a fullstack developer.
+          Computer Science Engineer with a strong passion for frontend
+          development, experienced in technologies like Vue.js, Nuxt.js, React,
+          and Next.js.
         </p>
         <p class="subtitle">Skills</p>
         <div class="skills">

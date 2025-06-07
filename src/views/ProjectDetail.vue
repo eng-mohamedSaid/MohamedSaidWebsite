@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { projects } from "@/data/data.js";
+import CloseButton from "@/components/CloseButton.vue";
 const route = useRoute();
 const router = useRouter();
 
@@ -17,37 +18,36 @@ onMounted(() => {
 
 <template>
   <section class="project-details" v-if="project">
-    <div class="portfolio-item">
-      <div class="portfolio-item-thumbnail">
-        <img :src="project.img" :alt="project.alt" />
-      </div>
-      <h3 class="subtitle">{{ project.title }}</h3>
+    <CloseButton closeLink="/portfolio" />
+    <div class="portfolio-item-thumbnail">
+      <img :src="project.img" :alt="project.alt" />
+    </div>
+    <h3 class="subtitle">{{ project.title }}</h3>
 
-      <p class="description">{{ project.description }}</p>
+    <p class="description">{{ project.description }}</p>
 
-      <ul class="general-info">
-        <li>
-          Created - <span>{{ project.created }}</span>
-        </li>
-        <li>
-          technologies used - <span>{{ project.technologies }}</span>
-        </li>
-        <li>
-          Role - <span>{{ project.role }}</span>
-        </li>
-      </ul>
+    <ul class="general-info">
+      <li>
+        Created - <span>{{ project.created }}</span>
+      </li>
+      <li>
+        technologies used - <span>{{ project.technologies }}</span>
+      </li>
+      <li>
+        Role - <span>{{ project.role }}</span>
+      </li>
+    </ul>
 
-      <div class="btns-container">
-        <a class="btn" :href="project.online" target="_blank">Demo</a>
-        <a class="btn" :href="project.github" target="_blank">Github</a>
-      </div>
+    <div class="btns-container">
+      <a class="btn" :href="project.online" target="_blank">Demo</a>
+      <a class="btn" :href="project.github" target="_blank">Github</a>
     </div>
   </section>
 </template>
 
 <style scoped>
 .project-details {
-  padding: 1.5rem;
+  padding: 4.5rem 1.5rem;
 }
 .portfolio-item-thumbnail img {
   border-radius: 1rem;
@@ -68,9 +68,6 @@ onMounted(() => {
   font-weight: 300;
 }
 
-.portfolio-item {
-  margin: 1.3rem;
-}
 .btns-container {
   display: flex;
   gap: 1rem;
@@ -79,7 +76,7 @@ onMounted(() => {
 
 @media (max-width: 600px) {
   .project-details {
-    padding: 0;
+    padding: 3.5rem 1rem;
   }
   .btns-container {
     justify-content: space-between;

@@ -61,4 +61,15 @@ const props = defineProps({
 .nav-toggler span::after {
   transform: rotate(-45deg);
 }
+
+@media (max-width: 600px) {
+  .nav-toggler {
+    width: 40px;
+    height: 40px;
+  }
+  .nav-toggler span {
+    height: 1.5px;
+    width: 18px;
+  }
+}
 </style>
