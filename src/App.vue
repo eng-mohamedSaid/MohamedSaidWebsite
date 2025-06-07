@@ -11,13 +11,13 @@ const isLoading = ref(true);
 
 setTimeout(() => {
   isLoading.value = false;
-}, 5000);
+}, 1500);
 </script>
 
 <template>
   <CirclesBackground />
-  <div class="main">
-    <Loader v-if="isLoading" />
+  <Loader v-if="isLoading" />
+  <div v-else class="main">
     <Navbar v-model="isNavActive" v-if="!route.meta.hideNavbar" />
     <RouterView v-show="!isNavActive" />
   </div>

@@ -3,7 +3,7 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <section class="home-section align-item-center" id="home">
+  <section class="home-section">
     <div class="home-text">
       <p>Hello , I 'm</p>
       <h1>Mohamed Said</h1>
@@ -19,6 +19,7 @@ import { RouterLink } from "vue-router";
 <style scoped>
 .home-section {
   display: flex;
+  align-items: center;
 }
 
 .home-text {
@@ -30,8 +31,6 @@ import { RouterLink } from "vue-router";
 .home-text h1 {
   font-size: 2rem;
   cursor: pointer;
-}
-.home-text h1 {
   color: var(--main-color);
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff,
     0 0 120px #fff, 0 0 160px #fff;

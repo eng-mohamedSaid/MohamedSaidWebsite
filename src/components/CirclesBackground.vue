@@ -1,16 +1,11 @@
 <script setup></script>
 <template>
   <div class="bg-circles">
-    <div class="circle-1"></div>
-    <div class="circle-2"></div>
-    <div class="circle-3"></div>
-    <div class="circle-4"></div>
-    <div class="circle-5"></div>
+    <div v-for="index in 5" :key="index" :class="`circle-${index}`"></div>
   </div>
 </template>
 
 <style scoped>
-/* background circles */
 .bg-circles {
   position: fixed;
   top: 0;
@@ -38,7 +33,7 @@
   top: 70%;
   height: 4rem;
   width: 4rem;
-  background-color:  rgb(231, 173, 231);
+  background-color: rgb(231, 173, 231);
   opacity: 0.4;
   animation: zoomInOut 8s linear infinite;
 }

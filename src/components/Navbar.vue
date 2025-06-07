@@ -26,26 +26,29 @@ const closeNav = () => {
         <span :class="{ active: modelValue }"></span>
       </button>
       <RouterLink to="/">
-        <img @click="closeNav" class="logo" src="@/assets/img/logo.png" alt="logo" />
+        <img
+          @click="closeNav"
+          class="logo"
+          src="@/assets/img/logo.png"
+          alt="logo"
+        />
       </RouterLink>
     </div>
 
-    <nav v-show="modelValue">
-      <section class="nav-inner">
-        <RouterLink class="nav-item link-item" to="/" @click="closeNav"
-          >Home</RouterLink
-        >
-        <RouterLink class="nav-item link-item" to="/about" @click="closeNav"
-          >About</RouterLink
-        >
-        <RouterLink class="nav-item link-item" to="/portfolio" @click="closeNav"
-          >Portfolio</RouterLink
-        >
-        <RouterLink class="nav-item link-item" to="/contact" @click="closeNav"
-          >Contact</RouterLink
-        >
-      </section>
-    </nav>
+    <section class="nav-inner" v-show="modelValue">
+      <RouterLink class="nav-item link-item" to="/" @click="closeNav"
+        >Home</RouterLink
+      >
+      <RouterLink class="nav-item link-item" to="/about" @click="closeNav"
+        >About</RouterLink
+      >
+      <RouterLink class="nav-item link-item" to="/portfolio" @click="closeNav"
+        >Portfolio</RouterLink
+      >
+      <RouterLink class="nav-item link-item" to="/contact" @click="closeNav"
+        >Contact</RouterLink
+      >
+    </section>
   </header>
 </template>
 
@@ -118,20 +121,7 @@ const closeNav = () => {
 .header:not(.active) .nav-toggler:hover span::before {
   width: 50%;
 }
-/* nav */
-.nav {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  padding: 1.5rem;
-  overflow-y: auto;
-  visibility: hidden;
-}
-.header.active .nav {
-  visibility: visible;
-}
+
 .nav-inner {
   display: flex;
   flex-direction: column;

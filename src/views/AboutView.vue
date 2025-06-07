@@ -1,9 +1,75 @@
 <script setup>
 import { RouterLink } from "vue-router";
+
+const skills = ["html", "CSS", "javascript", "Vue", "React"];
+const experiences = [
+  {
+    date: "Feb 2023 – Present",
+    title: "Frontend Developer",
+    company: "Thatek Saudi Arabia Company",
+    location: "Remote",
+    details: [
+      "Built responsive web apps with Nuxt.js & Tailwind CSS.",
+      "Implemented UI features using Adobe XD and Figma.",
+      "Refactored Nuxt.js codebase for responsiveness, maintainability, and DRY principles.",
+      "Developed tests and results pages; integrated backend APIs.",
+      "Migrated from Nuxt 2 to Nuxt 3, adopting Composition API and upgrading state management to Pinia.",
+      "Implemented dynamic theming and dark mode for enhanced accessibility.",
+      "Delivered React Native app features, expanding cross-platform capabilities.",
+      "Collaborated with backend team to ensure seamless API integration and optimize performance.",
+    ],
+  },
+  {
+    date: "Sep 2023 – Jul 2024",
+    title: "Team Leader & Frontend Lead",
+    project: "Graduation Project - Zagazig University",
+    company: "ZWEB - AI-powered website builder",
+    details: [
+      "Led 15-member team to develop an AI-driven landing page builder.",
+      "Mentored team on React & Git best practices.",
+      "Managed tasks, code merges, and conflict resolution.",
+      "Designed UI with Figma; integrated AI backend features.",
+      "Fostered open communication and team collaboration.",
+    ],
+  },
+  {
+    date: "Jan 2023 – Feb 2023",
+    title: "Frontend Developer",
+    company: "Freelance",
+    details: [
+      "Designed and developed a responsive Islamic website featuring audio and video content using HTML, CSS, and JavaScript.",
+      "Built multiple sections including Lessons, Lectures, Sermons, and Articles optimized for seamless user experience.",
+      "Ensured full compatibility across mobile, tablet, and desktop devices.",
+      "Collaborated closely with the client to refine features through multiple iterations.",
+    ],
+  },
+  {
+    date: "Oct 2022",
+    title: "Frontend Developer",
+    company: "Freelance",
+    details: [
+      "Built React landing page with brand-aligned design.",
+      "Created visuals using Adobe Illustrator.",
+      "Designed responsive layouts from wireframes.",
+    ],
+  },
+  {
+    date: "Apr 2022 – Sep 2022",
+    title: "Software Engineer Intern",
+    company: "Kalbonyan Elmarsos Internship",
+    details: [
+      "Completed comprehensive training in programming fundamentals, including object-oriented design, data structures, algorithms, and software testing.",
+      "Mastered web development with HTML, CSS, and responsive design through real-world projects.",
+      "Learned full MERN stack development: JavaScript, React.js, Node.js, and MongoDB.",
+      "Gained practical experience deploying applications on AWS and building serverless web applications.",
+      "Developed proficiency in Git and version control workflows.",
+    ],
+  },
+];
 </script>
 
 <template>
-  <section id="about">
+  <section>
     <h2 class="section-title">about me</h2>
 
     <div class="about-row">
@@ -19,37 +85,42 @@ import { RouterLink } from "vue-router";
         </p>
         <p class="subtitle">Skills</p>
         <div class="skills">
-          <div class="skill-item">html</div>
-          <div class="skill-item">css</div>
-          <div class="skill-item">javascript</div>
-          <div class="skill-item">React</div>
-          <div class="skill-item">Nodejs</div>
-          <div class="skill-item">AWS</div>
+          <div v-for="skill in skills" :key="skill" class="skill-item">
+            {{ skill }}
+          </div>
         </div>
 
-        <p class="subtitle">Education & Experience</p>
+        <p class="subtitle">Education</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="date">2020 : 2024</span>
+            <h4>Faculty of Engineering - Zagazig university</h4>
+            <p>Computer Science Department</p>
+          </div>
+        </div>
 
-        <!-- Education start  -->
-        <div class="tab-content active" id="education">
+        <p class="subtitle">Experience</p>
+        <div class="tab-content active">
           <div class="timeline">
-            <div class="timeline-item">
-              <span class="date">2020 : 2024</span>
-              <h4>Faculty of Engineering - Zagazig university</h4>
-              <p>Computer Science Department</p>
-            </div>
-
-            <div class="timeline">
-              <div class="timeline-item">
-                <span class="date">2022</span>
-                <h4>Kalbonyan Elmarsos Internship</h4>
-                <p>Learn Programing Fundamentals ,HTMl and CSS</p>
-                <p>Learn MERN Stack</p>
-                <p>
-                  Learn How to Deploy your web applications with Cloud Provider
-                  (AWS)
-                </p>
-                <p>Learn How to Make serverless web applications</p>
-              </div>
+            <div
+              v-for="(exp, index) in experiences"
+              :key="index"
+              class="timeline-item"
+            >
+              <span class="date">{{ exp.date }}</span>
+              <h4>{{ exp.title }}</h4>
+              <template v-if="exp.project">
+                <h4>{{ exp.project }}</h4>
+              </template>
+              <p v-if="exp.company">
+                {{ exp.company }}
+                <small v-if="exp.location"> ({{ exp.location }})</small>
+              </p>
+              <ul>
+                <li v-for="(detail, i) in exp.details" :key="i">
+                  {{ detail }}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -99,49 +170,6 @@ import { RouterLink } from "vue-router";
   margin: 0 0.8rem 0.8rem 0;
   border-radius: 1.5rem;
 }
-.about-tabs {
-  margin: 1.5rem;
-}
-.about-tabs .tab-item {
-  padding: 2px 0;
-  background-color: transparent;
-  border: none;
-  display: inline-block;
-  color: var(--blue-dark);
-  font-size: 1.5rem;
-  cursor: pointer;
-  font-weight: 500;
-  margin: 0 1.5rem 0 0;
-  position: relative;
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-.about-tabs .tab-item:last-child {
-  margin: 0;
-}
-.about-tabs .tab-item:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0%;
-  height: 1px;
-  background-color: var(--blue-dark);
-  transition: width 0.3s ease;
-}
-.about-tabs .tab-item:hover::before {
-  width: 100%;
-}
-.about-tabs .tab-item.active::before {
-  width: 100%;
-  background-color: var(--main-color);
-}
-.about-tabs .tab-item.active {
-  color: var(--main-color);
-  opacity: 1;
-  cursor: auto;
-}
-/* timeline for education */
 .timeline {
   position: relative;
 }
@@ -153,14 +181,6 @@ import { RouterLink } from "vue-router";
   top: 5px;
   left: 5px;
   background-color: var(--main-color);
-}
-/* ------------------for active Education and experience----------------------------------------- */
-.tab-content {
-  padding: 1rem 0;
-  display: none;
-}
-.tab-content.active {
-  display: block;
 }
 .timeline-item {
   margin-bottom: 2rem;
@@ -188,7 +208,13 @@ import { RouterLink } from "vue-router";
 .timeline-item h4 {
   font-size: 1.2rem;
   text-transform: capitalize;
+}
+.timeline-item p {
   margin: 0 0 0.6rem;
+}
+.timeline-item ul {
+  list-style: disc;
+  padding-left: 1.5rem;
 }
 
 .btn {

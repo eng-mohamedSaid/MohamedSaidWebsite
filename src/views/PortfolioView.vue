@@ -3,7 +3,7 @@ import { projects } from "@/data/data.js";
 </script>
 
 <template>
-  <section id="portfolio">
+  <section>
     <h2 class="section-title">recent work</h2>
 
     <div class="portfolio-items">
@@ -56,9 +56,6 @@ import { projects } from "@/data/data.js";
   border-radius: 1rem;
   max-width: 100%;
   height: auto;
-}
-.portfolio-item-details {
-  display: none;
 }
 
 @media (max-width: 767px) {

@@ -1,6 +1,4 @@
-<script setup>
-// No script needed for this animation
-</script>
+<script setup></script>
 
 <template>
   <div class="loader-container">

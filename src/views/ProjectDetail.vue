@@ -16,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="portfolio" class="project-details" v-if="project">
+  <section class="project-details" v-if="project">
     <div class="portfolio-item">
       <div class="portfolio-item-thumbnail">
         <img :src="project.img" :alt="project.alt" />
@@ -38,7 +38,6 @@ onMounted(() => {
       </ul>
 
       <div class="btns-container">
-
         <a class="btn" :href="project.online" target="_blank">Demo</a>
         <a class="btn" :href="project.github" target="_blank">Github</a>
       </div>
@@ -72,7 +71,7 @@ onMounted(() => {
 .portfolio-item {
   margin: 1.3rem;
 }
-.btns-container{
+.btns-container {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -82,9 +81,8 @@ onMounted(() => {
   .project-details {
     padding: 0;
   }
-  .btns-container{
-
-  justify-content: space-between;
-}
+  .btns-container {
+    justify-content: space-between;
+  }
 }
 </style>
