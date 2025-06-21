@@ -18,7 +18,7 @@ onMounted(() => {
 
 <template>
   <section class="project-details" v-if="project">
-    <CloseButton closeLink="/portfolio" />
+    <CloseButton closeLink="/projects" />
     <div class="portfolio-item-thumbnail">
       <img :src="project.img" :alt="project.alt" />
     </div>
@@ -60,6 +60,7 @@ onMounted(() => {
   margin-bottom: 1rem;
 }
 .general-info li {
+  list-style: none;
   margin-bottom: 0.8rem;
   font-weight: 500;
   text-transform: capitalize;

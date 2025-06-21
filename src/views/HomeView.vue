@@ -9,7 +9,7 @@ import { RouterLink } from "vue-router";
       <h1>Mohamed Said</h1>
       <h2>Frontend developer</h2>
       <RouterLink to="about" class="btn link-item">more about me</RouterLink>
-      <RouterLink to="portfolio" class="btn link-item">Portfolio</RouterLink>
+      <RouterLink to="projects" class="btn link-item">My Projects</RouterLink>
     </div>
 
     <img class="img-box" src="@/assets/img/my-photo2.webp" alt="my-logo" />

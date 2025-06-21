@@ -72,20 +72,16 @@ h5,
 h6 {
   font-weight: 500;
 }
-ul {
-  list-style: none;
-}
 section {
   background-color: var(--white-alpha-25);
   border: 1px solid var(--white-alpha-40);
   border-radius: 1rem;
   min-height: 90vh;
   backdrop-filter: blur(6px);
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   width: 100%;
 }
 
-/* section title */
 .section-title {
   padding: 2rem 1rem 1rem 1rem;
   width: 100%;
@@ -211,7 +207,7 @@ button {
     padding: 0px 10px 10px 10px;
   }
   section {
-    padding: 0 10px;
+    padding: 10px;
   }
   .btn {
     padding: 8px 14px;

@@ -16,12 +16,12 @@ const router = createRouter({
       component: () => import("../views/AboutView.vue"),
     },
     {
-      path: "/portfolio",
-      name: "portfolio",
+      path: "/projects",
+      name: "projects",
       component: () => import("../views/PortfolioView.vue"),
     },
     {
-      path: "/portfolio/:id",
+      path: "/projects/:id",
       name: "ProjectDetail",
       component: ProjectDetail,
       props: true,
@@ -30,6 +30,17 @@ const router = createRouter({
       path: "/contact",
       name: "contact",
       component: () => import("../views/ContactView.vue"),
+    },
+    {
+      path: "/articles",
+      name: "articles",
+      component: () => import("../views/BlogView.vue"),
+    },
+    {
+      path: "/articles/:slug",
+      name: "article",
+      component: () => import("../views/ArticleView.vue"),
+      props: true,
     },
   ],
 });
