@@ -48,9 +48,9 @@ const closeNav = () => {
       <RouterLink class="nav-item link-item" to="/contact" @click="closeNav"
         >Contact</RouterLink
       >
-      <!-- <RouterLink class="nav-item link-item" to="/articles" @click="closeNav"
+      <RouterLink class="nav-item link-item" to="/articles" @click="closeNav"
         >Blog</RouterLink
-      > -->
+      >
     </section>
   </header>
 </template>

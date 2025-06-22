@@ -34,7 +34,7 @@ const router = createRouter({
     {
       path: "/articles",
       name: "articles",
-      component: () => import("../views/BlogView.vue"),
+      component: () => import("../views/AllArticles.vue"),
     },
     {
       path: "/articles/:slug",
