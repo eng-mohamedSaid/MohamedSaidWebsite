@@ -1,39 +1,38 @@
 <template>
-  <div class="counter-app">
-    <p class="count-number" :class="{ 'light-background': isLight }">
+  <div class="masbha">
+    <p class="masbha-count" :class="{ 'masbha-count-light': isLight }">
       {{ count }}
     </p>
-    <div class="buttons-container">
+    <div class="masbha-controls">
       <button @click="lightBackground">💡</button>
       <button @click="reset">↺</button>
     </div>
-    <button class="increment" @click="increment"></button>
+    <button class="increment-btn" @click="increment"></button>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const count = ref(0);
 const isLight = ref(false);
 
-function increment() {
+const increment = () => {
   count.value++;
-}
-
-function reset() {
+};
+const reset = () => {
   count.value = 0;
-}
-function lightBackground() {
+};
+const lightBackground = () => {
   isLight.value = true;
   setTimeout(() => {
     isLight.value = false;
   }, 2000);
-}
+};
 </script>
 
 <style scoped>
-.counter-app {
+.masbha {
   text-align: center;
   position: relative;
   display: flex;
@@ -49,14 +48,14 @@ function lightBackground() {
   height: 190px;
 }
 
-.buttons-container {
+.masbha-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
   width: 95px;
 }
-.buttons-container button {
+.masbha-controls button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,14 +64,14 @@ function lightBackground() {
   color: white;
   font-size: 16px;
 }
-.count-number {
+.masbha-count {
   background: #abe2be;
   width: 100px;
   border-radius: 5px;
   text-align: right;
   padding: 4px;
 }
-.light-background {
+.masbha-count-light {
   background: #a6ffc5;
 }
 button {
@@ -81,7 +80,7 @@ button {
   border-radius: 50%;
   cursor: pointer;
 }
-.increment {
+.increment-btn {
   width: 55px;
   height: 55px;
 }
