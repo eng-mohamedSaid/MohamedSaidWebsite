@@ -19,6 +19,7 @@ import markdownit from "markdown-it";
 
 import TodoDemo from "@/components/articles/Todo.vue";
 import CounterDemo from "@/components/articles/Counter.vue";
+import CalculatorDemo from "@/components/articles/Calculator.vue";
 
 const route = useRoute();
 const slug = route.params.slug;
@@ -26,8 +27,9 @@ const renderedMarkdown = ref("");
 const loading = ref(true);
 
 const demoComponents = {
-  "simple-todo-vue3": TodoDemo,
-  "simple-counter-vue3": CounterDemo,
+  "todo-vue3": TodoDemo,
+  "masbha-counter-vue3": CounterDemo,
+  "calculator-vue3": CalculatorDemo,
 };
 const DemoComponent = shallowRef(demoComponents[slug] || null);
 
