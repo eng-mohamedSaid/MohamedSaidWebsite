@@ -24,7 +24,7 @@
 }
 
 .markdown-body strong {
-  color: #1b5e20;
+  color: var(--main-color);
 }
 
 .markdown-body em {

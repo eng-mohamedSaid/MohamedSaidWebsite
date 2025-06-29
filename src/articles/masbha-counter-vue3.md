@@ -2,7 +2,7 @@
 # Project 1 from Vue 3 Learning Series  
 ## Building a Digital Masbha (Prayer Beads) with Vue 3
 
-This is the first project in the Vue 3 learning series. In this article, you’ll learn how to build a **digital Masbha (prayer beads)** using Vue 3. This beginner-friendly project introduces you to key Vue 3 concepts including:
+This is the first project in the Vue 3 learning series. In this article, you’ll learn how to build a **digital Masbha (prayer beads)** using Vue 3. This beginner-friendly project introduces you to Vue3 concepts including:
 
 - Reactivity
 - Event handling
@@ -34,6 +34,8 @@ Our Masbha component will have:
 ## 🛠️ Step-by-Step Explanation
 
 ### 1. 🧱 Template Structure (HTML Only)
+In vue you should put html inside `<template></template>` and you can use classes for css normally and we put our css in `<style></style>`, see this html code it has paragraph and 3 buttons.
+
 
 ```vue
 <template>
@@ -51,6 +53,9 @@ Our Masbha component will have:
 ---
 
 ### 2. 🧠 Add the Script Logic
+now we need to make masbha work so we need to make the count dynamically be changed so let us make the script, you should add your script in `<script></script>` 
+we need a variable for count, in vue we have ref and this will make a reference for our variable so we can use it
+
 
 #### a. Import `ref` and Create Reactive Variables
 
@@ -62,15 +67,14 @@ const count = ref(0);
 </script>
 ```
 
-- This creates a reactive `count` initialized to 0.
+- know we have our const, and here you see zero, as this is my default value, you can make it any type you need like Boolean or string like ref(“ali”), now update the value in template to be dynamic
 
 #### b. Display Reactive Count in Template
 
 ```html
 <p class="masbha-count">{{ count }}</p>
 ```
-
-- Use `{{ count }}` for dynamic rendering.
+- if you want to show dynamic data you should put it in {{  }} , so now count is appear as 0 
 
 #### c. Create Increment Function
 
@@ -79,26 +83,29 @@ const increment = () => {
   count.value++;
 };
 ```
+- This is a simple function, and you see that we write count.value to get the value of count in script, but you should know that when you use count in template, you will not write .value and you see we use it in paragraph like this `<p class="masbha-count">{{ count }}</p>`
+
 
 #### d. Bind Increment Function to Button
 
 ```html
 <button class="increment-btn" @click="increment"></button>
 ```
+- to add increment function to the button. In js we use onclick, here we use v-on:click and instead of writing v-on we can write @ so it will be @click  and in vue3 we called this directive. Now increment button increase the value and it appear well.
 
 ---
 
 ### 3. 🔄 Reset Functionality
 
 #### a. Create Reset Function
-
+- we need to reset the count so make a function and get count value and make it eual to zero
 ```js
 const reset = () => {
   count.value = 0;
 };
 ```
 
-#### b. Add to Button
+#### b. Add to Reset Function Button
 
 ```html
 <button @click="reset">↺</button>
@@ -107,6 +114,7 @@ const reset = () => {
 ---
 
 ### 4. 💡 Highlight Counter Background
+- now we need to make background be lighted like a lump, so this can be done with making the background of count to be more lighter so make a new class to have new lighter background and make condition if it is true add this new background.
 
 #### a. Define Light Background Class in CSS
 
@@ -121,17 +129,9 @@ const reset = () => {
 ```js
 const isLight = ref(false);
 ```
-
-#### c. Use Dynamic Class Binding
-
-```html
-<p class="masbha-count" :class="{ 'masbha-count-light': isLight }">
-  {{ count }}
-</p>
-```
-
-#### d. Create Light Function with Timer
-
+#### c. Create Light Function with Timer
+- ask your self? how can we  make isLight true?
+- Answer:  we will make function for button of lamp and when i click, i need to make isLight true and after 2 seconds i need it to be false so we can use setTimeout
 ```js
 const lightBackground = () => {
   isLight.value = true;
@@ -141,6 +141,17 @@ const lightBackground = () => {
 };
 ```
 
+
+#### d. Use Dynamic Class Binding
+- In vue we have dynamic class and this can be done if you have a variable will be true or false or have any condition, for static css we know that is `class` so for dynamic `:class` , so if the variable which called isLight become true , dynamic class `masbha-count-light` will be added 
+
+```html
+<p class="masbha-count" :class="{ 'masbha-count-light': isLight }">
+  {{ count }}
+</p>
+```
+
+
 #### e. Bind Function to Lamp Button
 
 ```html
@@ -149,7 +160,7 @@ const lightBackground = () => {
 
 ---
 
-## ✅ Final Code
+## ✅ Final Full Code
 
 ```vue
 <template>
