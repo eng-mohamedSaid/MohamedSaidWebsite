@@ -122,7 +122,7 @@ const experiences = [
         </div>
 
         <a
-          href="https://www.notion.so/Mohamed-Said-Abdallah-4e6e5b071ab04d159b2980d2929dea60"
+          href="https://docs.google.com/document/d/1OcavfO8XJ7q3Q5Efn7UbkEj08XX4R7WxYeQJITmoPpU/edit?usp=sharing"
           class="btn link-item"
           target="_blank"
           >CV Link</a
