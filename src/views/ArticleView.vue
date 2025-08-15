@@ -1,9 +1,10 @@
 <template>
-  <section>
-    <router-link to="/articles">← العودة للمقالات</router-link>
+  <section class="article-view">
+    <router-link class="btn" to="/articles">← العودة للمقالات</router-link>
 
-    <div v-if="DemoComponent">
-      <component :is="DemoComponent" />
+    <div v-if="DemoComponent" class="component-wrapper">
+      <p class="subtitle">يمكنك تجربة المشروع أولاً</p>
+      <component class="demo-component" :is="DemoComponent" />
       <hr />
     </div>
 
@@ -17,8 +18,8 @@ import { ref, onMounted, shallowRef } from "vue";
 import { useRoute } from "vue-router";
 import markdownit from "markdown-it";
 
-import TodoDemo from "@/components/articles/Todo.vue";
 import CounterDemo from "@/components/articles/Counter.vue";
+import TodoDemo from "@/components/articles/Todo.vue";
 import CalculatorDemo from "@/components/articles/Calculator.vue";
 
 const route = useRoute();
@@ -51,4 +52,15 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.article-view {
+  font-family: "Cairo";
+}
+.demo-component {
+  margin: 1rem auto;
+}
+.component-wrapper{
+  text-align: center;
+}
+
+</style>

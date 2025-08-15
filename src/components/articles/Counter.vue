@@ -79,6 +79,10 @@ button {
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  transition: all .3s;
+}
+button:hover{
+  background: #38a54e;
 }
 .increment-btn {
   width: 55px;

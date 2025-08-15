@@ -4,7 +4,7 @@ import { projects } from "@/data/data.js";
 
 <template>
   <section>
-    <h2 class="section-title">recent work</h2>
+    <h2 class="section-title">Projects</h2>
 
     <div class="portfolio-items">
       <div class="portfolio-item" v-for="(project, idx) in projects" :key="idx">

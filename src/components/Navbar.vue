@@ -39,9 +39,6 @@ const closeNav = () => {
       <RouterLink class="nav-item link-item" to="/" @click="closeNav"
         >Home</RouterLink
       >
-      <RouterLink class="nav-item link-item" to="/about" @click="closeNav"
-        >About</RouterLink
-      >
       <RouterLink class="nav-item link-item" to="/projects" @click="closeNav"
         >Projects</RouterLink
       >

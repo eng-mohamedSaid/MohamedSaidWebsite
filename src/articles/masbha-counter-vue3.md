@@ -1,50 +1,41 @@
+## إنشاء مسبحة باستخدام Vue 3
 
-# Project 1 from Vue 3 Learning Series  
-## Building a Digital Masbha (Prayer Beads) with Vue 3
+النهاردة هنتعلم سوا ازاي نعمل **مسبحة الكترونية** باستخدام Vue 3. وهنتعلم فيه :
 
-This is the first project in the Vue 3 learning series. In this article, you’ll learn how to build a **digital Masbha (prayer beads)** using Vue 3. This beginner-friendly project introduces you to Vue3 concepts including:
+- Reactivity (يعني ازاي نخلي الصفحة تتغير لما نضغط على حاجة)
+- Event handling (يعني ايه اللي هيحصل لما ندوس على زرار)
+- Dynamic class binding (ازاي نغير style العناصر من خلال dynamic class)
+- Styling components using the Composition API 
+---
 
-- Reactivity
-- Event handling
-- Dynamic class binding
-- Styling components using the Composition API
+## 🔍 مكونات المسبحة
+
+- **شاشة** تظهر الرقم اللي احنا واقفين عنده
+- **زرار LED** 💡 هيخلي الشاشة تنور لمدة ثانيتين
+- **زرار تصفير** ↺ عشان نبدأ من الأول
+- **زرار كبير** هنضغط عليه عشان نزود العدد
 
 ---
 
-## 🔍 Project Overview
 
-Our Masbha component will have:
+## 🛠️ نبدأ خطوة خطوة
 
-- A **counter display** that shows the current count.
-- A **light button** 💡 that temporarily highlights the counter.
-- A **reset button** ↺ to reset the count.
-- A **large increment button** to increase the count on each click.
+### 1. 🧱 الأول نعمل الشكل بتاعنا (HTML)
+- بنحط عناصر html بداخل `<template></template>`
+- بنحط عناصر css بداخل `<style></style>`
+- بنحط عناصر script بداخل `<script></script>`
 
----
-
-## 🎯 What You Will Learn
-
-- How to create reactive variables using `ref`
-- Handling user interactions with `@click`
-- Applying dynamic classes based on state
-- Using `setTimeout` for temporary UI effects
-
----
-
-## 🛠️ Step-by-Step Explanation
-
-### 1. 🧱 Template Structure (HTML Only)
-In vue you should put html inside `<template></template>` and you can use classes for css normally and we put our css in `<style></style>`, see this html code it has paragraph and 3 buttons.
-
-
+بص علي الكود هنا هتلاقي pragraph, 3 buttons بداخل `<template></template>`
 ```vue
 <template>
   <div class="masbha">
     <p class="masbha-count">count</p>
+    
     <div class="masbha-controls">
       <button>💡</button>
       <button>↺</button>
     </div>
+
     <button class="increment-btn"></button>
   </div>
 </template>
@@ -52,12 +43,11 @@ In vue you should put html inside `<template></template>` and you can use classe
 
 ---
 
-### 2. 🧠 Add the Script Logic
-now we need to make masbha work so we need to make the count dynamically be changed so let us make the script, you should add your script in `<script></script>` 
-we need a variable for count, in vue we have ref and this will make a reference for our variable so we can use it
+### 2. 🧠 نضيف script
+عشان السبحة تشتغل، محتاجين نخلي العداد يتغير. هنكتب الكود في `<script></script>`
+محتاجين متغير للعداد، وفي Vue هنستخدم ref عشان نعمل متغير ممكن نغير قيمته وتتغير في كل مكان بيستخدمه
 
-
-#### a. Import `ref` and Create Reactive Variables
+#### أ. نستورد `ref` ونعمل المتغير بتاعنا
 
 ```js
 <script setup>
@@ -67,45 +57,45 @@ const count = ref(0);
 </script>
 ```
 
-- know we have our const, and here you see zero, as this is my default value, you can make it any type you need like Boolean or string like ref(“ali”), now update the value in template to be dynamic
+- كده عندنا المتغير، وشايفين انه بيبدأ من صفر، وطبعاً ممكن نخليه يبدأ بأي رقم تاني وبالنسبة لل ref ممكن نخليه string او boolean او اي نوع من الداتا
 
-#### b. Display Reactive Count in Template
+#### ب. نظهر العداد في الشاشة
 
 ```html
 <p class="masbha-count">{{ count }}</p>
 ```
-- if you want to show dynamic data you should put it in {{  }} , so now count is appear as 0 
+- لو عايزين نظهر متغير، بنحطه جوا {{  }}، كده هيظهر قيمة المتغير اللي اسمه count وقيمته بصفر والطريقة دي في vue اسمها interpolation 
 
-#### c. Create Increment Function
+#### ج. نعمل دالة زيادة العداد
 
 ```js
 const increment = () => {
   count.value++;
 };
 ```
-- This is a simple function, and you see that we write count.value to get the value of count in script, but you should know that when you use count in template, you will not write .value and you see we use it in paragraph like this `<p class="masbha-count">{{ count }}</p>`
+- دي دالة بسيطة، وشايفين اننا بنكتب count.value عشان نزود قيمة العداد في الكود، بس في الـ template مش هنكتب .value 
+- باختصار المتغير الخاص ب ref هنستدعيه في script باسمه ثم تضيف .value انما في template لا نضيف .value
 
-
-#### d. Bind Increment Function to Button
+#### د. نربط دالة الزيادة بالزرار
 
 ```html
 <button class="increment-btn" @click="increment"></button>
 ```
-- to add increment function to the button. In js we use onclick, here we use v-on:click and instead of writing v-on we can write @ so it will be @click  and in vue3 we called this directive. Now increment button increase the value and it appear well.
+ - عشان نخلي الزرار يشتغل، في Vue بنستخدم @click وده زي onclick في JavaScript. دلوقتي لما ندوس على الزرار، العداد وده اسمه Event Handler
 
 ---
 
-### 3. 🔄 Reset Functionality
+### 3. 🔄 زرار تصفير الشاشة
 
-#### a. Create Reset Function
-- we need to reset the count so make a function and get count value and make it eual to zero
+#### أ. نضيف الدالة في script 
+- عايزين نصفر العداد، يعني نرجعه صفر
 ```js
 const reset = () => {
   count.value = 0;
 };
 ```
 
-#### b. Add to Reset Function Button
+#### ب. نربط الدالة بالزرار
 
 ```html
 <button @click="reset">↺</button>
@@ -113,10 +103,10 @@ const reset = () => {
 
 ---
 
-### 4. 💡 Highlight Counter Background
-- now we need to make background be lighted like a lump, so this can be done with making the background of count to be more lighter so make a new class to have new lighter background and make condition if it is true add this new background.
+### 4. 💡 نعمل تأثير النور
+- عايزين نخلي الخلفية تنور، هنعمل كلاس جديد للشاشة ونضيفه لما ندوس على زرار النور
 
-#### a. Define Light Background Class in CSS
+#### أ. نعمل كلاس جديد للشاشة في CSS
 
 ```css
 .masbha-count-light {
@@ -124,14 +114,14 @@ const reset = () => {
 }
 ```
 
-#### b. Create `isLight` Variable
+#### ب. نعمل متغير وهنسميه isLight
 
 ```js
 const isLight = ref(false);
 ```
-#### c. Create Light Function with Timer
-- ask your self? how can we  make isLight true?
-- Answer:  we will make function for button of lamp and when i click, i need to make isLight true and after 2 seconds i need it to be false so we can use setTimeout
+
+#### ج. نعمل دالة النور مع مؤقت
+- عايزين نخلي isLight يبقى true لمدة ثانيتين وبعدين يرجع false
 ```js
 const lightBackground = () => {
   isLight.value = true;
@@ -141,9 +131,9 @@ const lightBackground = () => {
 };
 ```
 
-
-#### d. Use Dynamic Class Binding
-- In vue we have dynamic class and this can be done if you have a variable will be true or false or have any condition, for static css we know that is `class` so for dynamic `:class` , so if the variable which called isLight become true , dynamic class `masbha-count-light` will be added 
+#### د. نربط الشاشه بالمتغير isLight
+- في Vue ممكن نحط كلاس بشرط، لو الشرط اتحقق الكلاس هيتحط وده اسمه Dynamic Class Binding 
+- كده اول ما isLight يكون ب true هيضيف الكلاس الجديد اللي هو عباره عن لون خلفيه جديدة وبعد الثانيتين هيكون ب false فعلي طول لن يتم اضافه dynamic class للشاشة
 
 ```html
 <p class="masbha-count" :class="{ 'masbha-count-light': isLight }">
@@ -151,27 +141,28 @@ const lightBackground = () => {
 </p>
 ```
 
-
-#### e. Bind Function to Lamp Button
+#### هـ. نربط دالة النور بالزرار 
 
 ```html
 <button @click="lightBackground">💡</button>
 ```
 
----
 
-## ✅ Final Full Code
+## ✅ الكود كاملاً
 
 ```vue
 <template>
   <div class="masbha">
+
     <p class="masbha-count" :class="{ 'masbha-count-light': isLight }">
       {{ count }}
     </p>
+
     <div class="masbha-controls">
       <button @click="lightBackground">💡</button>
       <button @click="reset">↺</button>
     </div>
+
     <button class="increment-btn" @click="increment"></button>
   </div>
 </template>
@@ -214,7 +205,6 @@ const lightBackground = () => {
   width: 190px;
   height: 190px;
 }
-
 .masbha-controls {
   display: flex;
   justify-content: space-between;
@@ -222,7 +212,6 @@ const lightBackground = () => {
   gap: 10px;
   width: 95px;
 }
-
 .masbha-controls button {
   display: flex;
   justify-content: center;
@@ -232,7 +221,6 @@ const lightBackground = () => {
   color: white;
   font-size: 16px;
 }
-
 .masbha-count {
   background: #abe2be;
   width: 100px;
@@ -240,59 +228,55 @@ const lightBackground = () => {
   text-align: right;
   padding: 4px;
 }
-
 .masbha-count-light {
   background: #a6ffc5;
 }
-
 button {
   background: #3acd5b;
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  transition: all .3s;
 }
-
+button:hover{
+  background: #38a54e;
+}
 .increment-btn {
   width: 55px;
   height: 55px;
 }
 </style>
 ```
-
 ---
 
-## 🚀 How to Run This Project
+## 🚀 ازاي تشغل المشروع
 
-### 🔹 Online
-Use [Vue SFC Playground](https://sfc.vuejs.org) to paste and test the code live.
+### 🔹 اونلاين
+ادخل على [Vue SFC Playground](https://sfc.vuejs.org) وحط الكود وجربه على طول.
 
-### 🔹 On Your Local Machine
+### 🔹 على جهازك
 
-1. Create a Vue 3 project:
+1. اعمل مشروع Vue 3 جديد:
    ```bash
    npm create vue@latest
    ```
 
-2. Add the above component code into a `.vue` file.
+2. عدل الصفحة الرئيسية واكتب فيها الكود
 
-3. Place the background image (`counter.svg`) in the proper path or update the URL.
+3. حط صورة الخلفية في المكان المناسب.
 
-4. Import and use the `Masbha` component in your app.
-
-5. Run the dev server:
+4. شغل السيرفر:
    ```bash
    npm run dev
    ```
 
 ---
 
-## 🧾 Conclusion
+## 🧾 في النهاية
 
-This project is a simple and practical way to learn Vue 3. You’ve learned how to:
+كده احنا عملنا مشروع بسيط وعملي عشان نتعلم Vue 3، واتعلمنا:
 
-- Create **reactive variables** using `ref`.
-- Handle user interaction with **`@click` events**.
-- Use **dynamic class bindings** for styling.
-- Add **timed visual effects** using `setTimeout`.
-- Style components with **scoped CSS**.
-
+- ازاي نعمل **reactive variables** باستخدام  `ref`
+- ازاي نخلي **الأزرار تستجيب** للضغط `@click`
+- ازاي **نغير شكل العناصر** حسب حالتها **dynamic class bindings** 
+- ازاي نعمل **تأثيرات مؤقتة** في الشكل `setTimeout`

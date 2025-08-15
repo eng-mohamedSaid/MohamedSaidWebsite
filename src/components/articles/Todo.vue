@@ -105,6 +105,9 @@ onMounted(() => {
   height: 50px;
 }
 .todo-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 50px;
   width: 55px;
   font-size: 30px;
