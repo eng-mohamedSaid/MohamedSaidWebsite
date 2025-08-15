@@ -1,25 +1,38 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import About from "@/components/About.vue";
 </script>
 
 <template>
-  <section class="home-section">
-    <div class="home-text">
-      <p>Hello , I 'm</p>
-      <h1>Mohamed Said</h1>
-      <h2>Frontend developer</h2>
-      <RouterLink to="about" class="btn link-item">more about me</RouterLink>
-      <RouterLink to="projects" class="btn link-item">My Projects</RouterLink>
-    </div>
+  <section class="wrapper">
+    <div class="home-section">
+      <div class="home-text">
+        <p>Hello , I 'm</p>
+        <h1>Mohamed Said</h1>
+        <h2>Frontend developer</h2>
+        <RouterLink to="projects" class="btn link-item">My Projects</RouterLink>
+        <RouterLink to="articles" class="btn link-item">My Blog</RouterLink>
+      </div>
 
-    <img class="img-box" src="@/assets/img/my-photo2.webp" alt="my-logo" />
+      <img class="img-box" src="@/assets/img/my-photo2.webp" alt="my-logo" />
+    </div>
+    <about></about>
   </section>
 </template>
 
 <style scoped>
+.wrapper,
 .home-section {
   display: flex;
   align-items: center;
+}
+.wrapper{
+  flex-direction: column;
+}
+.home-section{
+  height: 600px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .home-text {

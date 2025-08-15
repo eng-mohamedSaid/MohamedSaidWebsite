@@ -1,51 +1,91 @@
 <template>
-  <div class="counter-app">
-    <h1>Simple Counter</h1>
-    <p>Current Value: {{ count }}</p>
-    <p v-if="isEven">The number is even</p>
-    <p v-else>The number is odd</p>
-    <button @click="increment" :disabled="count >= max">Increment</button>
-    <button @click="decrement" :disabled="count <= min">Decrement</button>
-    <button @click="reset">Reset</button>
+  <div class="masbha">
+    <p class="masbha-count" :class="{ 'masbha-count-light': isLight }">
+      {{ count }}
+    </p>
+    <div class="masbha-controls">
+      <button @click="lightBackground">💡</button>
+      <button @click="reset">↺</button>
+    </div>
+    <button class="increment-btn" @click="increment"></button>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from "vue";
 
-const count = ref(0);         // Reactive variable for the counter value
-const max = 10;               // Maximum value for the counter
-const min = 0;                // Minimum value for the counter
+const count = ref(0);
+const isLight = ref(false);
 
-// Computed property to check if the count is even
-const isEven = computed(() => count.value % 2 === 0);
-
-// Function to increment the counter
-function increment() {
-  if (count.value < max) count.value++;
-}
-
-// Function to decrement the counter
-function decrement() {
-  if (count.value > min) count.value--;
-}
-
-// Function to reset the counter to zero
-function reset() {
+const increment = () => {
+  count.value++;
+};
+const reset = () => {
   count.value = 0;
-}
+};
+const lightBackground = () => {
+  isLight.value = true;
+  setTimeout(() => {
+    isLight.value = false;
+  }, 2000);
+};
 </script>
 
 <style scoped>
-.counter-app {
-  max-width: 300px;
-  margin: 2rem auto;
+.masbha {
   text-align: center;
-  font-family: Arial, sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  background-image: url("@/assets/img/articles/counter.svg");
+  background-repeat: no-repeat;
+  background-size: 175px 180px;
+  background-position: center;
+  width: 190px;
+  height: 190px;
+}
+
+.masbha-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 95px;
+}
+.masbha-controls button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  color: white;
+  font-size: 16px;
+}
+.masbha-count {
+  background: #abe2be;
+  width: 100px;
+  border-radius: 5px;
+  text-align: right;
+  padding: 4px;
+}
+.masbha-count-light {
+  background: #a6ffc5;
 }
 button {
-  margin: 0 8px;
-  padding: 8px 16px;
+  background: #3acd5b;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
+  transition: all .3s;
+}
+button:hover{
+  background: #38a54e;
+}
+.increment-btn {
+  width: 55px;
+  height: 55px;
 }
 </style>

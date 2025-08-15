@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
 
-const skills = ["html", "CSS", "javascript", "Vue", "React"];
+const skills = ["html", "CSS", "javascript", "Vue", "Nuxt", "React", "Next","React Native"];
 const experiences = [
   {
     date: "Feb 2023 – Present",
@@ -69,12 +69,10 @@ const experiences = [
 </script>
 
 <template>
-  <section>
+  <div>
     <h2 class="section-title">about me</h2>
 
     <div class="about-row">
-      <img class="image" src="@/assets/img/my-photo.webp" alt="me" />
-
       <div class="about-text">
         <p class="description">
           Computer Science Engineer with a strong passion for frontend
@@ -132,10 +130,14 @@ const experiences = [
         <RouterLink to="contact" class="btn link-item">contact me</RouterLink>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
-<style>
+<style scoped>
+.section-title{
+  text-align: start;
+   padding: 0;
+}
 .about-text {
   padding: 1rem 0;
   font-size: 1.2rem;
