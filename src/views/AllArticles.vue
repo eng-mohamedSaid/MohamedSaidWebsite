@@ -2,7 +2,9 @@
   <section class="blog">
     <h1 class="title">المقالات</h1>
 
-    <div class="articles">
+    <loader v-if="loading"></loader>
+
+    <div v-else class="articles">
       <div
         class="article-wrapper"
         v-for="article in articles"
@@ -24,9 +26,11 @@
 </template>
 
 <script setup>
+import Loader from "@/components/Loader.vue";
 import article1 from "@/assets/img/articles/heading/digital-counter.webp";
 import article2 from "@/assets/img/articles/heading/calculator.webp";
 import article3 from "@/assets/img/articles/heading/todo.webp";
+import { onMounted, ref } from "vue";
 
 const articles = [
   {
@@ -45,6 +49,13 @@ const articles = [
     image: article3,
   },
 ];
+
+const loading = ref(true);
+onMounted(()=>{
+  setTimeout(()=>{
+    loading.value = false;
+  }, 300)
+})
 </script>
 
 <style scoped>

@@ -8,7 +8,9 @@
       <hr />
     </div>
 
-    <div v-if="loading">جاري التحميل...</div>
+    <div v-if="loading">
+      <loader></loader>
+    </div>
     <div v-else v-html="renderedMarkdown" class="markdown-body"></div>
   </section>
 </template>
@@ -18,6 +20,7 @@ import { ref, onMounted, shallowRef } from "vue";
 import { useRoute } from "vue-router";
 import markdownit from "markdown-it";
 
+import Loader from "@/components/Loader.vue";
 import CounterDemo from "@/components/articles/Counter.vue";
 import TodoDemo from "@/components/articles/Todo.vue";
 import CalculatorDemo from "@/components/articles/Calculator.vue";
