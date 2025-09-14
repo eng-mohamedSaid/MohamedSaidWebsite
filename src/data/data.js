@@ -43,7 +43,7 @@ export const projects = [
   },
   {
     id: "quran-memorizer-listen",
-    title: "Quran Memorizer Listen",
+    title: "Quran Friend",
     img: quranMemorizerImg,
     alt: "quran memorizer listen home page",
     description:
