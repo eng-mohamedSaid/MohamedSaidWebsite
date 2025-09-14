@@ -36,16 +36,16 @@ const closeNav = () => {
     </div>
 
     <section class="nav-inner" v-show="modelValue">
-      <RouterLink class="nav-item link-item" to="/" @click="closeNav"
+      <RouterLink class="nav-item" to="/" @click="closeNav"
         >Home</RouterLink
       >
-      <RouterLink class="nav-item link-item" to="/projects" @click="closeNav"
+      <RouterLink class="nav-item" to="/projects" @click="closeNav"
         >Projects</RouterLink
       >
-      <RouterLink class="nav-item link-item" to="/contact" @click="closeNav"
+      <RouterLink class="nav-item" to="/contact" @click="closeNav"
         >Contact</RouterLink
       >
-      <RouterLink class="nav-item link-item" to="/articles" @click="closeNav"
+      <RouterLink class="nav-item" to="/articles" @click="closeNav"
         >Blog</RouterLink
       >
     </section>

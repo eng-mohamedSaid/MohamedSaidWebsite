@@ -123,11 +123,11 @@ const experiences = [
 
         <a
           href="https://docs.google.com/document/d/1OcavfO8XJ7q3Q5Efn7UbkEj08XX4R7WxYeQJITmoPpU/edit?usp=sharing"
-          class="btn link-item"
+          class="btn"
           target="_blank"
           >CV Link</a
         >
-        <RouterLink to="contact" class="btn link-item">contact me</RouterLink>
+        <RouterLink to="contact" class="btn">contact me</RouterLink>
       </div>
     </div>
   </div>

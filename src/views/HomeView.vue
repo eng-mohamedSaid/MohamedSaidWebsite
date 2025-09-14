@@ -10,8 +10,16 @@ import About from "@/components/About.vue";
         <p>Hello , I 'm</p>
         <h1>Mohamed Said</h1>
         <h2>Frontend developer</h2>
-        <RouterLink to="projects" class="btn link-item">My Projects</RouterLink>
-        <RouterLink to="articles" class="btn link-item">My Blog</RouterLink>
+        <div class="btns">
+          <RouterLink to="projects" class="btn">Projects</RouterLink>
+          <RouterLink to="articles" class="btn">Blog</RouterLink>
+          <a
+            href="https://docs.google.com/document/d/1OcavfO8XJ7q3Q5Efn7UbkEj08XX4R7WxYeQJITmoPpU/edit?usp=sharing"
+            class="btn"
+            target="_blank"
+            >CV</a
+          >
+        </div>
       </div>
 
       <img class="img-box" src="@/assets/img/my-photo2.webp" alt="my-logo" />
@@ -26,10 +34,10 @@ import About from "@/components/About.vue";
   display: flex;
   align-items: center;
 }
-.wrapper{
+.wrapper {
   flex-direction: column;
 }
-.home-section{
+.home-section {
   height: 600px;
   justify-content: space-between;
   width: 100%;
@@ -55,9 +63,6 @@ import About from "@/components/About.vue";
   font-weight: 300;
   margin: 0 0 2rem;
 }
-.home-text .btn {
-  margin: 0 1rem 1rem 0;
-}
 .img-box {
   width: 360px;
   height: 360px;
@@ -67,6 +72,13 @@ import About from "@/components/About.vue";
   border-radius: 50%;
   border: 8px solid var(--white-alpha-25);
   margin: auto;
+}
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 @media (max-width: 900px) {
@@ -87,9 +99,8 @@ import About from "@/components/About.vue";
     height: 200px;
     margin: 0;
   }
-
-  .home-text .btn {
-    margin: 0 1.5rem 1.5rem;
+  .btns {
+    justify-content: center;
   }
 }
 </style>

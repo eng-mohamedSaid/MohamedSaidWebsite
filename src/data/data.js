@@ -12,6 +12,7 @@ import chat from "@/assets/img/portfolio/chat.webp";
 import coffe from "@/assets/img/portfolio/coffe.webp";
 import islamic from "@/assets/img/portfolio/islamic.webp";
 import safwa from "@/assets/img/portfolio/safwa.webp";
+import quranMemorizerImg from "@/assets/img/portfolio/quran-memorise.webp";
 
 export const projects = [
   {
@@ -41,17 +42,17 @@ export const projects = [
     github: "https://github.com/eng-mohamedSaid/kalbonyanElmarsosWebsite",
   },
   {
-    id: "quran-academy",
-    title: "Quran academy",
-    img: quranAcademyImg,
-    alt: "quran academy home page",
+    id: "quran-memorizer-listen",
+    title: "Quran Memorizer Listen",
+    img: quranMemorizerImg,
+    alt: "quran memorizer listen home page",
     description:
-      "Waratell alquran tarteela Academy, It is an academy for quran, teaching people how to read quran well. Client need a simple landing page without form and consists of only one page. I choose all the colors and design all the images with illustrator and after accepting the design, I started to code it with HTML, CSS and Js.",
-    created: "December 2022",
-    technologies: "HTML & CSS & JS",
-    role: "Frontend",
-    online: "https://waratell-academy.vercel.app/",
-    github: "https://github.com/eng-mohamedSaid/quran-academy",
+      "Quran Memorizer Listen is a personal project built with Firebase to help people memorize the Quran while working by playing verses with multiple reciters automatically. In this project, I mainly worked with Firebase console and studio, focusing on setup, configuration, and solving technical problems to make the app work smoothly without writing custom code. This experience helped me understand Firebase deeply, troubleshoot issues, and optimize the workflow.",
+    created: "September 2025",
+    technologies: "Firebase Studio AI & Next",
+    role: "Configuration & Problem Solving for all error and mentor to Firebase Studio",
+    online: "https://quran-memorizer-listen.vercel.app/",
+    github: "https://github.com/eng-mohamedSaid/quran-memorizer",
   },
   {
     id: "ecommerce",
